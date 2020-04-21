@@ -1,0 +1,86 @@
+
+<!DOCTYPE  html>
+<html>
+    <head>
+        <!-- <title>
+            Bus Seat selection test
+        </title>        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Let's go out</title>
+        <link rel="stylesheet" type="text/css" href="/css/seat.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="/scripts/seat.js"></script>
+    </head>
+
+    <body>        
+      <!-- navigation bar starts... -->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">Logo</a>
+        
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link primary" href="http://localhost:3001/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3001/pnr_enquiry">PNR Enquiry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="http://localhost:3001/cancel_ticket">Cancel Tickets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#about">About</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- navigation bar ends...-->
+    
+      <div id="bus_details" style="background-color: yellow;">
+        <table id="busses"></table>
+      </div>
+
+      <!-- <button id="SeatButton" type="button" class="btn btn-primary btn-sm m-3" onclick="toggleSeatSelect()">Select Seat</button> -->
+      <div id="seatCard" class="card text-center m-3" style="width:25%;">
+          <h5 class="card-header" style="background-color: rgb(60, 60, 60); color: aliceblue;">Select Seat</h5>
+          <div id="seatContainer" class="card-body text-center" style="background-color:#1d1d1d">
+          </div>
+      </div>
+
+      <input type="button" id="fill_details" class="btn btn-success btn-outline-success" value="Enter details" hidden="true">
+
+      <div id="details">
+        <form>
+            <label for="name">Name : </label>
+            <input type="text" id="name" name="name">
+            <label for="age">Age : </label>
+            <input type="number" id="age" name="age">
+            <label for="genderm">Male</label>
+            <input type="radio" name="gender" id="genderm" value="M">
+            <label for="genderf">Female</label>
+            <input type="radio" name="gender" id="genderf" value="F">
+            <label for="idno">Id No : </label>
+            <input type="number" id="idno" name="idno">
+            <label for="phoneno">Phone Number : </label>
+            <input type="number" id="phoneno" name="phoneno">
+            <label for="email">Email : </label>
+            <input type="email" id="email" name="email">
+        </form>
+        <input type="button" id="sub"value="Submit">
+      </div>
+      
+      <a href="http://localhost:3001/seat_selecttion"><input type="button" id="cancel" value="cancle" class="btn btn-secondary btn-outline-secondary" hidden='true'></a>
+  
+    </body>
+
+</html>

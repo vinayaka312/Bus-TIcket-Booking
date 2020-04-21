@@ -1,0 +1,28 @@
+.seatButton {
+  width: 12% !important;
+}
+
+#bus_details{
+  margin-top: 0px;
+  margin-left: 0px;
+}
+table{ 
+  margin-top: 0px;
+  margin-left: 100px;
+  border-collapse:separate; 
+  border-spacing: 0 15px; 
+  } 
+  th{ 
+  background-color: #4287f5; 
+  color: white; 
+  } 
+  th,td{ 
+  width: 150px; 
+  text-align: center; 
+  border: 1px solid black; 
+  padding: 5px;
+  background-color:rgb(238, 130, 238);
+  } 
+  h2{ 
+  color: #4287f5; 
+  } 

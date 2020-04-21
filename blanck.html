@@ -1,0 +1,161 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Let's go out</title>
+  <link rel="stylesheet" type="text/css" href="/css/blanck.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="/scripts/blanck.js"></script>
+</head>
+
+<body style="background-color:rgb(0,10,11)">
+
+
+  <div class="jumbotron">
+      <div class="container">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div><h1 style="margin-top: -50px; background-color: navy;"><b>A better way to travel</b></h1></div>
+              <img src="./Public/images/bus2.jpg" alt="bus" style="width: 600px; height: 300px;margin-left: -100px;">
+              <img src="./Public/images/bus1.jpg" alt="bus" style="width: 600px; height: 300px;margin-left: 600px; margin-top: -300px;">
+              <h5 style="text-align: center;margin-top: 20px;"><b>Go Greyhound and leave the driving to us! We're on our way.</b></h5>
+            </div>
+            <div class="carousel-item">
+              <h1 style="margin-top: -4px;"><b>Being sober on a bus is, like, totally different than being </b></h1>
+              <h1 style="text-align: center;"><b>drunk on a bus</b></h1>
+              <img src="./Public/images/bus3.jpg" alt="bus" style="width: 600px; height: 250px;margin-left: -100px;">
+              <img src="./Public/images/bus4.jpg" alt="bus" style="width: 600px; height: 250px;margin-left: 600px; margin-top: -250px;">
+            </div>  
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+  </div>
+
+<!-- navigation bar starts... -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">Logo</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link primary" href="http://localhost:3001/">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:3001/pnr_enquiry">PNR Enquiry</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="http://localhost:3001/cancel_ticket">Cancel Tickets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="#about">About</a>
+    </li>
+  </ul>
+</nav>
+<!-- navigation bar ends...-->
+
+  <!-- Searching starts... -->
+  <div id="book_ticket" name="booking">
+    <div id="head">
+      <h2 style="font-weight: bold;">Book Your Tickets Here</h2>
+    </div>
+
+    <div class="dropdown show">
+      <input type="text" id="source" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Leaving From :">
+      <div class="dropdown-menu" aria-labelledby="SearchMenuLink" id="suggestionList1"></div>
+    </div>
+
+    <div class="two-way twowaychang">
+      <a onclick="swap()">
+      <img src="./Public/images/arrow.png" id="arrow">  
+      </a>
+    </div>
+    
+    <div class="dropdown show">
+      <input type="text" id="destination" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Going to :">
+      <div class="dropdown-menu" aria-labelledby="SearchMenuLink" id="suggestionList2"></div>
+    </div>
+
+    <div id="da">
+      <input type="date" id="date" onfocus="(this.type='date')">
+    </div>
+
+    <div id="leaving">
+      <input class="primary" type="button" id="submit" value="Submit">
+    </div>
+  </div>
+  <!-- Searcjing end !-->
+
+  <!--  -->
+  <div id="links">
+    <div class="row">
+      <div class="col-sm">
+        <ul>
+          <h4><b>Popular Bus Routes</b></h2>
+          <li onclick="document.getElementById('source').value=' YELLAPUR';document.getElementById('destination').value='MYSORE'"> YELLAPUR to MYSORE</li>
+          <li onclick="document.getElementById('source').value=' YELLAPUR';document.getElementById('destination').value='SHIMOGA'"> YELLAPUR to SHIMOGA</li>
+          <li onclick="document.getElementById('source').value=' YELLAPUR';document.getElementById('destination').value='SAGAR'"> YELLAPUR to SAGAR</li>
+          <li onclick="document.getElementById('source').value=' YELLAPUR';document.getElementById('destination').value='SIRSI'"> YELLAPUR to SIRSI</li>
+          <li onclick="document.getElementById('source').value=' SHIMOGA';document.getElementById('destination').value='YELLAPUR'">SHIMOGA to YELLAPUR</li>
+          <li onclick="document.getElementById('source').value=' SHIMOGA';document.getElementById('destination').value='MYSORE'">SHIMOGA to MYSORE</li>
+          <li onclick="document.getElementById('source').value=' MYSORE';document.getElementById('destination').value='SHIMOGA'">MYSORE to SHIMOGA</li>
+          <li onclick="document.getElementById('source').value=' MYSORE';document.getElementById('destination').value='SAGAR'">MYSORE to SAGAR</li>
+          <li onclick="document.getElementById('source').value=' MYSORE';document.getElementById('destination').value='SIRSI'">MYSORE to SIRSI</li>
+          <li onclick="document.getElementById('source').value=' MYSORE';document.getElementById('destination').value='YELLAPUR'">MYSORE to  YELLAPUR</li>
+        </ul>
+      </div>
+      <div class="col-sm">
+        <ul><h4><b>Popular Bus Operators</b></h2></ul>
+          <li><a href=" https://www.apsrtconline.in/oprs-web/" target="_blank" onclick="window.open(this.href); return false;">APSRTC</a></li>
+          <li><a href=" https://www.tsrtconline.in/oprs-web/" target="_blank" onclick="window.open(this.href); return false;">TSRTC</a></li>
+          <li><a href=" https://ksrtc.in/oprs-web/" target="_blank" onclick="window.open(this.href); return false;">KSRTC</a></li>
+          <li><a href=" https://www.redbus.in/travels/bihar-state-road-transport-corporation-bsrtc" target="_blank" onclick="window.open(this.href); return false;">BSRTC</a></li>
+          <li><a href=" https://www.keralartc.com/ticketbooking.html" target="_blank" onclick="window.open(this.href); return false;">Kerala RTC</a></li>
+          <li><a href=" https://www.orangetravels.in/" target="_blank" onclick="window.open(this.href); return false;">Orange Travels</a></li>
+          <li><a href=" https://www.srsbooking.com/" target="_blank" onclick="window.open(this.href); return false;">SRS Travels</a></li>
+          <li><a href=" https://www.morningstartravels.in/" target="_blank" onclick="window.open(this.href); return false;">Morning Star Travels</a></li>
+          <li><a href=" http://www.kaveribus.com/" target="_blank" onclick="window.open(this.href); return false;">Kaveri Travels</a></li>
+          <li><a href=" http://www.diwakarbus.com/" target="_blank" onclick="window.open(this.href); return false;">Diwakar Travels</a></li>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Social footer -->
+  <div class="container py-3"> 
+		<div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="300"> 
+			<div class="home wrap social w-100 text-center"> 
+					<div class="social-header pb-2 pr-2">
+						<span>We're Social!</span> Connect with us on 
+					</div> 
+					<div> 
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a> 
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a> 
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-tumblr" aria-hidden="true"></i></a> 
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a>
+						<a href=" http://localhost:3001/social" target="_blank" onclick="window.open(this.href); return false;"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a> 
+					</div> 
+			</div> 
+		</div> 
+  </div>
+  <!-- Social footer -->
+</body>
+</html>

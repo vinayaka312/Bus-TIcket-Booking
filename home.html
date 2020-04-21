@@ -1,0 +1,189 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Let's go out</title>
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="/scripts/home.js"></script>
+</head>
+
+<body style="background-color: rgb(51, 56, 56)">
+   
+  <div class="topnav">
+    <a>   </a>
+    <a href="http://localhost:3001/">HOME </a>
+    <span class="nav-link" id="pnr_enquiry" onclick="document.getElementById('id01').style.display='block'"> <a> PNR Enquiry</a> </span>
+    <span class="nav-link" id="cancel_ticket" onclick="document.getElementById('id02').style.display='block'"><a>Cancel Ticket</a> </span>
+    <a> About</a>
+  </div>
+
+
+<!-- PNR Enquiry Form Details starts-->
+  <div id="id01" class="modal">
+    <span onclick="window.location.href='http://localhost:3001/'" class="close" title="Close Modal">&times;</span>
+    <div class="container modal-content">
+      <h1>PNR Enquiry</h1>
+      <p>Please fill in this form to enquiry.</p>
+      <hr>
+      <label for="pnr_value"><b>PNR</b></label>
+      <input type="text" placeholder="Enter PNR" name="pnr_value" id="pnr_value">
+      <hr>
+      <div id="pnr_details" hidden>
+        
+        <label for="pnr_name">Name</label>
+        <input type="text" name="pnr_name" id="pnr_name" disabled>
+        
+        <label for="pnr_age">Age</label>
+        <input type="text" name="pnr_age" id="pnr_age" disabled>
+        
+        <label for="pnr_gender">Gender</label>
+        <input type="text" name="pnr_gender" id="pnr_gender" disabled>
+        
+        <label for="pnr_departure">Departure</label>
+        <input type="text" name="pnr_departure" id="pnr_departure" disabled>
+        
+        <label for="pnr_destination">Destination</label>
+        <input type="text" name="pnr_destination" id="pnr_destination" disabled>
+        
+        <label for="pnr_idno">Id No</label>
+        <input type="text" name="pnr_idno" id="pnr_idno" disabled>
+        
+        <label for="pnr_phone">Phone</label>
+        <input type="text" name="pnr_phone" id="pnr_phone" disabled>
+
+        <label for="pnr_email">Email</label>
+        <input type="text" name="pnr_email" id="pnr_email" disabled>
+      </div>      
+      <div class="clearfix">
+        <button type="button" onclick="window.location.href='http://localhost:3001/'" class="cancelbtn">Cancel</button>
+        <button type="button" id="pnrbtn" class="pnrbtn" onclick="send_pnr()">Submit</button>
+      </div>
+    </div>
+  </div>
+<!-- PNR Enquiry form Details ends-->
+
+<!-- Cancellation of Ticket starts -->
+  <div id="id02" class="modal">
+    <span onclick="window.location.href='http://localhost:3001/'" class="close" title="Close Modal">&times;</span>
+    <div class="container modal-content">
+      <h1>Cancellation of Ticket</h1>
+      <p>Please fill in this form to Cancel Ticket.</p>
+      <hr>
+      <label for="pnr_value"><b>PNR</b></label>
+      <input type="text" placeholder="Enter PNR" name="pnr_value1" id="pnr_value1">
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email_value" id="email_value">
+      <hr>
+      <div id="enter_otp" hidden>
+          <label for="otp">OTP</label>
+          <input type="text" name="otp" id="otp">
+          <br>
+      </div>  
+      <br>    
+      <div class="clearfix">
+        <button type="button" onclick="window.location.href='http://localhost:3001/'" class="cancelbtn">Cancel</button>
+        <button type="button" id="sendotp" class="sendotp" onclick="send_otp_email()" style="width: 50%;">Send Otp</button>
+        <button type="button" id="submitotp" class="submitotp" onclick="submit_otp()" style="width: 50%;" hidden>Submit</button>
+      </div>
+    </div>
+  </div>
+<!-- Cancellation of Ticket ends -->
+
+<div class="container">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="./images/Bus1.jpg" alt="Los Angeles" style="width:100%; height:400px;">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>LA is always so much fun!</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="./images/Bus2.jpg" alt="Chicago" style="width:100%; height:400px;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="./images/bus3.jpg" alt="New York" style="width:100%;height:400px;">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Route details starts -->
+  <div id="book_ticket" name="booking">
+    <div id="head">
+      <h2 style="font-weight: bold;">Book Your Tickets Here</h2>
+    </div>
+
+    <div class="dropdown show">
+      <input type="text" id="source" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Leaving From :">
+      <div class="dropdown-menu" aria-labelledby="SearchMenuLink" id="suggestionList1"></div>
+    </div>
+
+    <div class="two-way twowaychang">
+      <a onclick="swap()">
+      <img src="./images/arrow.png" id="arrow">  
+      </a>
+    </div>
+    
+    <div class="dropdown show">
+      <input type="text" id="destination" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Going to :">
+      <div class="dropdown-menu" aria-labelledby="SearchMenuLink" id="suggestionList2"></div>
+    </div>
+
+    <div id="da">
+      <input type="date" id="date" onfocus="(this.type='date')">
+    </div>
+    <br>
+    <div id="leaving">
+      <input class="primary" type="button" id="submit" value="Submit" onclick="document.getElementById('id03').style.display='block'">
+    </div>
+  </div>
+<!-- Route details ends -->
+  <div id="article1">
+    <h2>Our New BUS FACILITY</h2>
+    <div id="new_bus_details">
+      <video  height="235" autoplay style="border: 1px solid white; ">
+        <source src="./images/Volvo.mp4" type="video/mp4" >
+      </video>
+      <p>The road feel and driving experience are truly special when in a Volvo B11R.  The precise steering and smooth gear changes combined with the high engine torque, the responsiveness and the outstanding driveability make the drivers work a pleasure. Depending on application you can choose between rigid and independent front suspension, both with excellent comfort and a high turning circle.</p>
+    </div>
+  </div>
+</body>
+</html>
