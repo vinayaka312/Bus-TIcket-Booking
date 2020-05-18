@@ -233,15 +233,17 @@ input::-webkit-inner-spin-button {
   background-color: white;
   color:black;
   border-width: 4px;
-  width: 600px;
-  height: 250px;
-  margin-left: 15px;
-  margin-top: 25px;
+  width: 50%;
+  height: 45%;
+  margin-left: 1%;
+  margin-top: 5%;
+}
+#book_ticket input{
+  display: block; 
 }
 
 #source,#destination,#date,#submit{
   padding: 6px;
-  width: 86%;
   border-top-right-radius:5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -254,43 +256,59 @@ textarea {
 }
 
 #source{
-  margin-top: 4px;
   border: 1px solid rgb(116, 99, 99);
   background-color: whitesmoke;
   color: rgb(0, 0, 0);
-  margin-left: 40px;
-  width: 380px;
+  margin-top: 4%;
+  margin-left: 7%;
+  width: 78%;
 }
+
 #arrow {
-  margin-top: -10px;
+  margin-top: .35%;
   margin-left: 0px;
-  height: 30px;
-  width: 40px;
+  height:15%;
+  width: 10%;
   border-radius: 50%;
 }
+
 #destination {
   border: 1px solid rgb(116, 99, 99);
   background-color: whitesmoke;
   color: rgb(0, 0, 0);
-  margin-top: -20px;
-  margin-left: 40px;
-  width: 380px;
+  margin-top: 4%;
+  margin-left: 7%;
+  width: 78%;
 }
 
 #date {
   border: 1px solid rgb(116, 99, 99);
   background-color: whitesmoke;
   color: rgb(0, 0, 0);
-  margin-top: 4px;
-  margin-left: 40px;
-  width: 250px;
+  margin-top: .4%;
+  margin-left: 7%;
+  width: 40%;
 }
 
 #submit {
-  background-color: cadetblue;
-  margin-top: -5px;
-  margin-left: 200px;
-  width: 200px;
+  background-color: #350485a6;
+  margin-top: -7.5%;
+  margin-left: 50%;
+  width: 35%;
+}
+.dropdown-item a{
+  padding: 2%;
+}
+
+article {
+  width: 30% !important;
+  margin-left: 60%;
+  margin-top: -23%;
+  height: 35%;
+}
+
+.card-header {
+  padding: 2px;
 }
 
 #article1 {
@@ -309,18 +327,32 @@ textarea {
   margin-left: 30px;
 }
 
-/* blockquote
+blockquote
 {
-  font-style:normal;
-  margin-left:32px;
-  font-family:"Segoe Print", "Times New Roman", Verdana;
-  padding-left: 48px;
+  color: #ebb6ee;
+  font-style: italic;
+  font-family:monospace,Verdana,"Segoe Print", "Times New Roman", serif;
   background-repeat:no-repeat;
   min-height: 30px;  
-} */
+} 
 
 .footer{
   background-color: #D1C4E9;
   margin:0px auto;
   padding: 20px 0px 20px 0px;
 }
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  color: #717171;
+}
+
+.social-media .fa {
+  padding:10px;
+  color: #482908;
+}
+

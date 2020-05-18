@@ -55,9 +55,11 @@ app.get('/',(req,res)=>{                                    //home page loader
 app.post('/search_stops',function(req,res){
   var key = req.body.key;
   sql = 'SELECT distinct departure from stops where departure like "'+key+'%"';
+  console.log(sql);
   con.query(sql,(err,result)=>{
     if (err) throw err;
-      res.send(result);
+    console.log(result);
+    res.send(result);
   });
 });
 
@@ -114,12 +116,12 @@ app.post('/selected_bus',(req,res)=>{                       // insert selected b
 
 
 
-app.get('/seat_selecttion',(req,res)=>{                     //Seat booking page loader
+app.get('/seat_selection',(req,res)=>{                     //Seat booking page loader
   sess = req.session;
-  if(sess.date)
+  // if(sess.date)
     res.sendFile(__dirname+'/seat.html');
-  else
-    res.sendFile(__dirname+'/home.html');
+  // else
+    // res.sendFile(__dirname+'/home.html');
 });
 
 
@@ -214,7 +216,6 @@ app.get("/pnr_enquiry",(req,res)=>{                         //PNR Enquiry page l
 
 app.post("/pnr",(req,res)=>{                                    //get PNR value and returns passenger ddetails
   var pnr = req.body.pnr;
-  console.log(pnr);
   sql = 'select * from pnr where pnr = "'+pnr+'"';
   con.query(sql,(err,result)=>{
     res.send(result);

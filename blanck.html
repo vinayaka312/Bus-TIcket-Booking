@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Let's go out</title>
-  <link rel="stylesheet" type="text/css" href="/css/blanck.css">
+  <link rel="stylesheet" type="text/css" href="./Public/css/blanck.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <script type="text/javascript" src="/scripts/blanck.js"></script>
+  <script type="text/javascript" src="./Public/scripts/blanck.js"></script>
 </head>
 
 <body style="background-color:rgb(0,10,11)">
@@ -47,6 +47,70 @@
       </div>
   </div>
 
+
+
+
+
+  <div class="container" style="position: static;">
+    <div class="row row-content">
+        <div class="col">
+            <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img class="d-block"
+                            src="./Public/images/Bus1.jpg" alt="Chicago" style='width:"100%"; height:"6%"'>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Chicago</h3>
+                            <p>Thank You,Chicago!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block "
+                            src="./Public/images/Bus2.jpg" alt="Los Angeles" style='width:"100%"; height:"6%"'>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Los Angeles</h3>
+                            <p>LA is always so much fun!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block"
+                            src="./Public/images/bus3.jpg" alt="New York" style='width:"100%"; height:"6%"'>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>New York</h3>
+                            <p class="d-none d-sm-block">We love the big apple!</p>
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1"></li>
+                        <li data-target="#mycarousel" data-slide-to="2"></li>
+                    </ol>
+                    <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                     </a>
+                    <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- navigation bar starts... -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
@@ -72,6 +136,7 @@
 
   <!-- Searching starts... -->
   <div id="book_ticket" name="booking">
+      
     <div id="head">
       <h2 style="font-weight: bold;">Book Your Tickets Here</h2>
     </div>
@@ -83,7 +148,7 @@
 
     <div class="two-way twowaychang">
       <a onclick="swap()">
-      <img src="./Public/images/arrow.png" id="arrow">  
+        <img src="./images/arrow.png" id="arrow">
       </a>
     </div>
     
@@ -94,10 +159,10 @@
 
     <div id="da">
       <input type="date" id="date" onfocus="(this.type='date')">
-    </div>
+    </div><br>
 
     <div id="leaving">
-      <input class="primary" type="button" id="submit" value="Submit">
+      <input class="primary" type="button" id="submit" value="Submit" onclick="document.getElementById('id03').style.display='block'">
     </div>
   </div>
   <!-- Searcjing end !-->

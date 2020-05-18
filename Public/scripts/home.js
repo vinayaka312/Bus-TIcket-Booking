@@ -26,6 +26,7 @@ function send_pnr(){
     $.post("/pnr",{
       pnr:pnr
     },(data)=>{
+      alert(data);
       if(data.length==0){
         alert("Enter the valid PNR number");
       }
@@ -102,7 +103,7 @@ function add(data,dep_dest) { //function for search suggestion...
   if(len>5) len=5;
   if(dep_dest=="departure") {     //departure search suggestion...
     for(i=0;i<len;i++) 
-    content+='<a class="dropdown-item" onclick="document.getElementById(\'source\').value=\''+data[i].departure+'\'" >'+data[i].departure+'</a><br>';
+    content+='<a class="dropdown-item" onclick="document.getElementById(\'source\').value=\''+data[i].departure+'\'">'+data[i].departure+'</a><br>';
     $("#suggestionList1").append(content);
   }
   else {                          //destination search suggestion...
@@ -122,7 +123,7 @@ function selected(leaving,going,date) {            // function which sends the  
       if(data==0)
         alert("Route cannot be found....!");
       else {
-
+      window.location.href="localhost:3001/seat_selection";
       }
   });
 }
@@ -131,9 +132,10 @@ function selected(leaving,going,date) {            // function which sends the  
 $(document).ready(()=>{
   $("#source").keyup(()=>{
     $("#suggestionList1").html('');
-    if($("#source").val()!='') {
+    var key = $("#source").val();
+    if(key!='') {
       $.post('/search_stops',{
-        key:$("#source").val()
+        key:key
       },(data)=>{
         add(data,"departure");
       });
@@ -142,16 +144,17 @@ $(document).ready(()=>{
   
   $("#destination").keyup(()=>{
     $("#suggestionList2").html('');
-    if($("#source").val()!='') {
+    var key = $("#destination").val();
+    if(key!="") {
       $.post('/search_stops',{
-        key:$("#destination").val()
+        key:key
       },(data)=>{
         add(data,"destination");
       });
     }
   });
 
-  $("#leaving #submit").click(()=>{
+  $("#submit").click(()=>{ 
     
     $("#HELLO").remove();
     $("#selection").remove();
