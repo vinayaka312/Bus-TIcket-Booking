@@ -114,7 +114,6 @@ function add(data,dep_dest) { //function for search suggestion...
 }
 
 function selected(leaving,going,date) {            // function which sends the  user entered details
-  // alert(leaving+" "+going+" "+date+"\n");
   $.post("/search",{
     leav: leaving,
     go: going,
@@ -123,7 +122,7 @@ function selected(leaving,going,date) {            // function which sends the  
       if(data==0)
         alert("Route cannot be found....!");
       else {
-      window.location.href="localhost:3001/seat_selection";
+      window.location.href="http://localhost:3001/seat_selection";
       }
   });
 }
@@ -160,8 +159,8 @@ $(document).ready(()=>{
     $("#selection").remove();
     var leaving = $("#source").val();
     var going = $("#destination").val();
-    var date = $("#da #date").val();
-    var temp= new Date($("#da #date").val());
+    var date = $("#date").val();
+    var temp= new Date($("#date").val());
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth()).padStart(2, '0');

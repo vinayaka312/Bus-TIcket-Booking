@@ -1,4 +1,5 @@
- var busses;
+
+var busses;
  var numberOfSeats=[];     //contains seats  number user selected  
  var count = 0;           //contains the number of times "Select seat pressed"
  var passengerSeat;
@@ -103,12 +104,14 @@ function bus_no(num) {
     },(ans)=>{
       if(ans == busses[num].id) {
         $("#seatCard").show();
-        fill_details.hidden = false;
-        cancel.hidden = false;
-        $("#details").hide();
+        $("#fill_details").show();
+        $("#cancel").show();
+        $("#bus_details").hide();
+        // $("#details").hide();
         $("#seatContainer").empty();
         $.get('/getSeatSelected',(data)=>{    //It will get the booked seat from database
           var i;
+          
           for(i=0;i<data.length;i++) {
             if(data[i]==true)
               seats[i] = true;
@@ -125,19 +128,19 @@ function bus_no(num) {
 
 function add_details() {
   var len =  busses.length;
-  console.log(busses);
-  var content = " <tr><td>Bus Id</td><td>Bus Time</td><td>Bus Type</td><td>Bus Route</td><td>Bus Seat</td><td>cost</td></tr>";
+  var content = " <tr><td>Bus Id</td><td>Bus Time</td><td>Bus Type</td><td>Bus Route</td><td>Bus Seat</td><td>cost</td><td></td></tr>";
   for(var i=0;i<len;i++)
-  content += " <tr><td>"+busses[i].id+"</td><td>"+busses[i].time1+" - "+busses[i].time2+"</td><td>"+busses[i].type+"</td><td>"+busses[i].depart+" - "+busses[i].dest+"</td><td>"+busses[i].seat+"</td><td>"+busses[i].cost+"</td><td style='border :0px solid;background-color:yellow'><button id='SeatButton' type='button' class='btn btn-primary btn-sm m-3' onclick='bus_no(\""+i+"\")'>Select Seat</button></td></tr>";    
+  content += " <tr><td>"+busses[i].id+"</td><td>"+busses[i].time1+"&nbsp- "+busses[i].time2+"</td><td>"+busses[i].type+"</td><td>"+busses[i].depart+" - "+busses[i].dest+"</td><td>"+busses[i].seat+"</td><td>"+busses[i].cost+"</td><td style='border :0px solid;'><button id='SeatButton' type='button' class='btn btn-primary btn-sm m-3' onclick='bus_no(\""+i+"\")'>Select Seat</button></td></tr>";    
   // <input type='button' value='Select' onclick='bus_no(\""+i+"\")' style='background-color:blue;color:white;'></input>
   $("#busses").append(content);
 }
 
 $(window).load(()=>{
-  // $("#SeatButton").hide();
   $("#seatCard").hide();
   $("#details").hide();
-  $("#sub").hide();
+  $("#submit").hide();
+  $("#cancel").hide();
+  $("#fill_details").hide();
   $.get('/bus_details',(data)=>{
     busses = data;
     add_details();
@@ -158,48 +161,57 @@ $(document).ready(()=>{
     }
     if(k==0)
       alert("Select any seats before entering the details....!");
-    else {    
+    else {   
+      $('.right').show();
       $("#SeatButton").hide();
       $("#seatCard").hide();
       $("#fill_details").hide();
-      $("#details").show();
-      $("#sub").show();
+      $("#submit").show();
         passengerSeat = numberOfSeats[count];
         alert("Enter the details of passenger who sits in seat number "+numberOfSeats[count]);
     }
   });
 
-  $("#sub").click(()=>{
-    var Name = $("#name").val();
-    var Age = $("#age").val();
-    var Gender =  $("input[name='gender']:checked"). val();
-    var IdNo = $("#idno").val();
-    var Phone = $("#phoneno").val();
-    var Email = $("#email").val();
+  $("#submit").click(()=>{
+    var IdNo = $('#idno').val();
+    var Phone = $('#phoneno').val();
+    var Name = $('#name').val();
+    var Age = $('#age').val();
+    var Gender =  $("input[name='gender']:checked").val();
+    var Email = $('#email').val();
 
-    $.post('/insertSeat',{
-      name:Name,
-      age:Age,
-      gender:Gender,
-      idNo:IdNo,
-      phone:Phone,
-      email:Email,
-      seatNo:passengerSeat
-    },(data)=>{
-      if(data=='YES') {
-        count++;
-        if(count == numberOfSeats.length) {
-          alert("Thanks for booking....!");
-          window.location.href="/";
+    if(Name=='' || Age=='' || Gender =='' || IdNo == 0 || Phone =='' || Email=='') {
+      alert("Fill all the details before submit");
+    }
+    else {
+      $.post('/insertSeat',{
+        name:Name,
+        age:Age,
+        gender:Gender,
+        idNo:IdNo,
+        phone:Phone,
+        email:Email,
+        seatNo:passengerSeat
+      },(data)=>{
+        if(data=='YES') {
+          count++;
+          if(count == numberOfSeats.length) {
+            alert("Thanks for booking....!");
+            window.location.href="/";
+          }
+          else {
+            passengerSeat = numberOfSeats[count];
+            $('#idno').val()='';
+            $('#phoneno').val()='';
+            $('#name').val()='';
+            $('#age').val()='';
+            $('#email').val()='';
+            alert("Enter the details of passenger who sits in seat number "+numberOfSeats[count]);
+          }
         }
-        else {
-          passengerSeat = numberOfSeats[count];
-          alert("Enter the details of passenger who sits in seat number "+numberOfSeats[count]);
-        }
-      }
-      else
-        alert("Error!Please refresh page again...");
-    });
+        else
+          alert("Error!Please refresh page again...");
+      });
+    }
   });
-
 });

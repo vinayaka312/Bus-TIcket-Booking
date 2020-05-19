@@ -55,10 +55,8 @@ app.get('/',(req,res)=>{                                    //home page loader
 app.post('/search_stops',function(req,res){
   var key = req.body.key;
   sql = 'SELECT distinct departure from stops where departure like "'+key+'%"';
-  console.log(sql);
   con.query(sql,(err,result)=>{
     if (err) throw err;
-    console.log(result);
     res.send(result);
   });
 });
@@ -95,16 +93,21 @@ app.post('/search',(req,res)=>{                             //search for the  av
   con.query("select * from busses",(err,data)=>{            //acquire all the favarable busses inserted in the search operation
     if(err) throw err;
     busses = data;
-    con.query("delete from busses",(err,result)=>{if(err)throw err;}); //delete all required busses in the favarable busses table                                                       //send favarable busses details to client side                                         
+    console.log(busses);
+   setTimeout(()=>{con.query("delete from busses",(err,result)=>{if(err)throw err;}); //delete all required busses in the favarable busses table                                                       //send favarable busses details to client side                                         
     if(busses.length==0)
-    res.send('0');
-  else
-    res.send('1');
-  });
+      res.send('0');
+    else
+      res.send('1');
+  });},100);
 });
 
 app.get('/bus_details',(req,res)=>{
-  res.send(busses);
+  con.query("select * from busses",(err,data)=>{            //acquire all the favarable busses inserted in the search operation
+    if(err) throw err;
+    busses = data;
+  });
+  setTimeout(()=>{res.send(busses)},100);
 });
 
 
@@ -132,7 +135,6 @@ app.get('/getSeatSelected',(req,res)=>{                     // fetching the book
   id = sess.code;                                           //id = bus path id
   date = sess.date;
   name = date.substring(0,4)+date.substring(5,7)+date.substring(8)+id;   //name = date user choosed + bus path id
- 
   var sql = "select seats from paths where id='"+id+"'";      //mysql command to get total seat available in the bus with path id = id
   con.query(sql,(err,result)=>{
     
@@ -148,7 +150,7 @@ app.get('/getSeatSelected',(req,res)=>{                     // fetching the book
       }
       else {
         sql = 'select seat from '+name +' where  destination > '+lea+" and destination <= "+goi;
-        sql +=" union distinct select seat from "+name+" where departure < "+goi +' and destination >= '+goi;                     //get booked seat number from name table
+        sql +=" union distinct select seat from "+name+" where departure < "+goi +' and destination >= '+goi;                   //get booked seat number from name table
         con.query(sql,(err,resu)=>{
             var k;
             for(var i=0;i<resu.length;i++) {                // remove booked seat number from available seats
@@ -192,7 +194,6 @@ app.post('/insertSeat',(req,res)=>{                         //inserting the pass
   });
   sql = "insert into pnr values('"+pnr+"','"+Name+"',"+age+",'"+gender+"','";
   sql += sess.leaving+"','"+sess.going+"',"+idno+","+phone+",'"+email+"',"+seatNo+")";     //mysql command to insert passenger details 
-  console.log(sql);
   con.query(sql,(err,result)=>{
     if(err) throw err;
     else {
@@ -283,10 +284,8 @@ app.post('/ticket_cancel',(req,res)=>{
 
 function search_busses(id,type,seat,dep,dest,leaving,going,date) {         //function to search for the favarable busses
   // leaving = leaving.substring(1);
-  console.log(leaving);
   sql = 'select l.no as no1,g.no as no2,l.time as time1,g.time as time2,l.cost as cost1,g.cost as cost2  ';
   sql += 'from '+id+' as l,'+id+' as g where l.no<g.no and l.stops="'+leaving+'" and g.stops="'+going+'"';  //mysql command to search for favarable busses
-
   con.query(sql,(err,result)=>{
     if(err) throw err;
     else if(result.length!=0) {

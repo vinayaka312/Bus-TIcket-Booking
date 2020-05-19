@@ -1,7 +1,7 @@
-.seatButton {
+ .seatButton {
   width: 12% !important;
 }
-
+/*
 #bus_details{
   margin-top: 0px;
   margin-left: 0px;
@@ -25,4 +25,164 @@ table{
   } 
   h2{ 
   color: #4287f5; 
-  } 
+  }  */
+
+  body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+#cross {
+  font-size: 560%;
+  color: #ffffff;
+}
+
+/* Extra styles for the cancel button */
+#cancel {
+  padding: 14px 20px;
+  background-color: #f44336;
+  float: left;
+  width: 50%;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+#fill_details{
+  padding: 14px 20px;
+  background-color: #17af1fc5;
+  width: 50%;
+  margin-left: 50%;
+  margin-top: -5.2%;
+}
+
+#submit {
+  padding: 14px 20px;
+  background-color: #1762ee;
+  width: 50%;
+  margin-left: 50%;
+  margin-top: -5.2%; 
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Badding: 8px;ox */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+table{
+  border: none;
+  padding: 2%;
+}
+
+table tr:first-child {
+  background-color: #0443f5;
+
+}
+
+table td:nth-last-child(1) {
+  background-color: #ffffff;
+}
+tr {
+  background-color: #691b15;
+  color: #ffffff;
+  text-align: center;
+  padding: 2%;
+}
+
+td{
+  margin-left: 20px;
+  border: 6px solid #ffffff;
+  width: 4%;
+  padding: 1%;
+}
