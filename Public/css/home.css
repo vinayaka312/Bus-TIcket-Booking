@@ -302,14 +302,14 @@ article {
   padding: 2px;
 }
 
-#article1 {
+/* #article1 {
   border: 3px solid black;
   color: whitesmoke;
   width: 700px;
-  height: 450px;
+  height: 500px;
   margin-left: 645px;
-  margin-top: -250px;
-}
+  margin-top: -150px;
+} */
 
 #new_bus_details {
   border: 1px solid white;
@@ -317,9 +317,12 @@ article {
   height:300px;
   margin-left: 30px;
 }
-
+#new_bus {
+  margin-top: 10%;
+}
 blockquote
 {
+  margin-top: 70px;
   color: #ebb6ee;
   font-style: italic;
   font-family:monospace,Verdana,"Segoe Print", "Times New Roman", serif;
