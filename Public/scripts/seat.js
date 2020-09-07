@@ -53,7 +53,6 @@ function addInactiveButton(name,container) {
   var button ='<button type="button" class="btn btn-secondary btn-sm seatButton" disabled>' + name + '</button>';
   container.innerHTML += button;
 }
-2
 //dynamically adds seats to container at page load
 function loadSeatSelect() {
   var seatContainer = document.getElementById("seatContainer");                
@@ -120,6 +119,7 @@ function bus_no(num) {
           }
           loadSeatSelect();
         });
+         
       }
       else 
         alert("Error! Please refreash the page");
@@ -145,7 +145,6 @@ $(window).load(()=>{
     busses = data;
     add_details();
   })
-  
 });
 
 $(document).ready(()=>{

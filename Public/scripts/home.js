@@ -26,7 +26,6 @@ function send_pnr(){
     $.post("/pnr",{
       pnr:pnr
     },(data)=>{
-      alert(data);
       if(data.length==0){
         alert("Enter the valid PNR number");
       }
